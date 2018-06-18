@@ -43,7 +43,7 @@ void doWork(const int*, const int);
 
 void testWorker(const int value)
 {
-    printf("%zu\n", value);
+    printf("%d\n", value);
     return;
 }
 
