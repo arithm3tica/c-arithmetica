@@ -38,8 +38,8 @@
 #include <ctype.h>
 #include <stddef.h>
 
-void testWorker();
 void doWork(int*, int);
+void testWorker(int);
 
 void doWork(int *values, int count)
 {
