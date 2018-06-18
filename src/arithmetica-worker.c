@@ -38,10 +38,16 @@
 #include <ctype.h>
 #include <stddef.h>
 
-void doWork(int*, int);
-void testWorker(int);
+void testWorker(const int);
+void doWork(const int*, const int);
 
-void doWork(int *values, int count)
+void testWorker(const int value)
+{
+    printf("%zu\n", value);
+    return;
+}
+
+void doWork(const int *values, const int count)
 {
     int i=0;
     while(i < count)
@@ -53,23 +59,19 @@ void doWork(int *values, int count)
     return;
 }
 
-void testWorker(int value)
-{
-    printf("%d\n", value);
-    return;
-}
-
 //This main function will go away when the worker is compiled as a 
 //dynamically-linked library. This is just here for testing in the interim.
 int main(int argc, char **argv)
 {
     int values[10];
-    for(int i = 0; i < (sizeof(values)/sizeof(int)); ++i)
+    const int count = sizeof(values)/sizeof(int);
+
+    for(int i = 0; i < count; ++i)
     {
         values[i]=i;
     }
 
-    doWork(values, 10);
+    doWork(values, count);
 
     return 0;
 }
