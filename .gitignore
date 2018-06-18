@@ -1,0 +1,9 @@
+# C/CPP Ignores
+
+### Ignore the compiled files (build and lib dirs)
+build
+lib/*
+
+### Ignore any executables
+bin/*
+
